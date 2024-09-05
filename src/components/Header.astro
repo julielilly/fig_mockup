@@ -1,0 +1,50 @@
+---
+
+---
+
+<header>
+    <div id="header_content">
+        <h5>AskExperts</h5>    
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/case/">Case Study</a></li>
+            <li><a href="/team/">Team</a></li>
+            <li><a href="/about/">About</a></li>
+        </ul>
+        <button popovertarget="login">Login</button>
+
+        <div popover id="login">
+            <h2>I'm a popup</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+    </div>
+</header>
+
+
+<style>
+    @layer components {
+        header {
+            background: var(--primary-3);
+        }
+
+        #header_content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+
+            h5 {
+                color: var(--secondary-2);
+            }
+
+            ul {
+                list-style: none;
+                display: flex;
+                gap: var(--space-l);
+
+            
+            }
+        }
+        
+    }
+</style>
