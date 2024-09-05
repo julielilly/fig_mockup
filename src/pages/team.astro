@@ -2,9 +2,19 @@
 import "../styles/global.css";
 
 import Layout from "../layouts/Layout.astro";
+import EmployeeSection from "../components/EmployeeSection.astro";
+
+const employeeData1 = await fetch(
+    "https://raw.githubusercontent.com/julielilly/frontend-design/main/resources/json/employees.json"
+).then((res) => res.json());
+
+
+
+
 ---
 
 <Layout title="AskExperts - Team">
-	<main>
-	</main>
+
+	<EmployeeSection data={employeeData1}/>
+	
   </Layout>
