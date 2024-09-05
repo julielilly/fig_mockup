@@ -3,48 +3,160 @@
 ---
 
 <header>
-    <div id="header_content">
-        <h5>AskExperts</h5>    
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/case/">Case Study</a></li>
-            <li><a href="/team/">Team</a></li>
-            <li><a href="/about/">About</a></li>
-        </ul>
-        <button popovertarget="login">Login</button>
+    
+        <div class="header_content">
+            <a href="/"> <h5 id="logo"> AskExperts </h5> </a>   
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/case/">Case Study</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button popovertarget="login">Login</button>
+        </div>
 
         <div popover id="login">
             <h2>I'm a popup</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
         </div>
-    </div>
+
+        <div class="header_content">
+            <a href="/"> <h5 id="logo"> AskExperts </h5> </a> 
+            
+            <div class="hamburger">
+              <span class="line_one"></span>
+              <span class="line_two"></span>
+              <span class="line_three"></span>
+            </div>
+        </div>
+          
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/case/">Case Study</a></li>
+            <li><a href="/team/">Team</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><button popovertarget="login">Login</button></li>
+        </ul>
+
+   
 </header>
 
+<script>
+    const icon = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+
+    icon.addEventListener("click", () => {
+        icon.classList.toggle("clicked");
+        menu.classList.toggle("show_menu");
+    });
+</script>
 
 <style>
+    
     @layer components {
         header {
-            background: var(--primary-3);
+            background: oklch(from var(--primary-3) calc(l + 0.1) c h);
+            position: sticky;
+            top: 0;
+
         }
 
-        #header_content {
+        ul {
+                display: flex;
+                gap: var(--space-l);
+            }
+    
+
+        .header_content {
+            background: oklch(from var(--primary-3) calc(l + 0.1) c h);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 90px;
+            padding: var( --space-l) 0;
 
-            h5 {
+            #logo{
                 color: var(--secondary-2);
             }
 
-            ul {
-                list-style: none;
-                display: flex;
-                gap: var(--space-l);
+            /* burger menu */
 
-            
+            .hamburger {
+                --line-height: var(--space-3xs);
+                --burger-size: calc(var(--line-height) * 6.5);
+                
+                width: calc(var(--burger-size) * 1.5);
+                height: var(--burger-size);
+                z-index: 1;
+                cursor: pointer;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+  
+                span {
+                    position: absolute;
+                    display: block;
+                    height: var(--line-height);
+                    width: calc(var(--burger-size) * 1.5);
+                    background-color: var(--secondary-2);
+                    transform: rotate(0);
+                    transition: all .25s ease;
+                }
+  
+                .line_one {
+                    top: calc(var(--burger-size) - var(--burger-size));
+                }
+
+                .line_two {
+                    top: calc(var(--burger-size) / 2);
+                }
+
+                .line_three {
+                    top: var(--burger-size);
+                }
+            }
+
+            .clicked .line_one {
+                transform: translateY(calc(var(--burger-size) / 2)) rotate(45deg);
+            }
+
+            .clicked .line_two {
+                opacity: 0;
+            }
+
+            .clicked .line_three {
+                transform: translateY(calc(var(--burger-size) / -2)) rotate(-45deg);
             }
         }
-        
+
+        .menu {   
+                flex-direction: column;
+                justify-content: space-between;
+                padding: var( --space-3xl);
+                color: var(--secondary-2);
+                background: oklch(from var(--primary-3) calc(l + 0.1) c h);
+                position: fixed;
+                top: calc(var( --space-l) + var(--step-5));
+                right: 0;
+                z-index: -2;
+                width: 100vw;
+
+                transform: translateY(-100%);
+                transition: all .5s ease;
+
+            }
+            .show_menu {
+            transform: translateY(0);
+            }
+        @media (width <= 650px) { 
+                .header_content:first-child {
+                    display: none;
+                }
+            }
+        @media (width > 650px) { 
+            .header_content:nth-last-child(2), .menu{
+                display: none;
+            }
+        }
     }
 </style>
