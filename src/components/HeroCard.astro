@@ -11,11 +11,11 @@ const { title, paragraph, buttonText } = Astro.props;
 <style>
     @layer components {
         div {
-            padding: 46px;
+            padding: var(--space-2xl);
             border-radius: var(--border-card);
-            border: 1px solid rgba(255, 255, 255, 0.20);
+            border: 0.063rem solid rgba(255, 255, 255, 0.20);
             background: rgba(38, 38, 38, 0.90);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(1rem);
             flex: 1 0 0;
             aspect-ratio: 3/1;
 
@@ -26,7 +26,8 @@ const { title, paragraph, buttonText } = Astro.props;
                 font-size: var( --step-2);
             }
             p {
-                margin: 10px 0 36px 0;
+                margin: var(--space-2xs) 0 var(--space-l) 0;
+                min-width: 20ch;
             }
             h6, button {
                 text-wrap: nowrap;
