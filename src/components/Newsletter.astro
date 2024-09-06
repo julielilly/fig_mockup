@@ -19,93 +19,90 @@
 </footer>
 
 <style>
-    @layer components {
+@layer components {
+  #newsletter {
+    background: var(--primary-3);
+    color: var(--secondary-2);
+    padding: var(--space-4xl);
+    border-radius: var(--border-card);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    z-index: -2;
+    margin-inline: auto; 
+    gap: var(--space-s);
+    
+    position: relative;
+    overflow: hidden;
 
-        #newsletter {
-            background: var(--primary-3);
-            color: var(--secondary-2);
-            padding: var(--space-4xl);
-            border-radius: var(--border-card);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            z-index: -2;
-            margin-inline: auto; 
-            gap: var(--space-s);
-            
-            position: relative;
-            overflow: hidden;
-  
-            form {
-                display: flex;
-                align-items: flex-end;
-                flex-wrap: wrap;
-                gap: var(--space-s);
-                align-items: center;
-               
-            }
-  
-            &::before {
-                --square-count: 12;
-                --square-size: var(--step-5);
-                
-                --_square-size: var(--square-size, 1rem);
-                --_square-half: calc(var(--square-size) / 2);
-                --_square-sum: calc(var(--square-count) * var(--square-size));
-                content: '';
-                position: absolute;
-                inset: -10rem -9rem auto auto ;
-                /*inline-size: calc(var(--square-count) * 1.34rem - .67rem);*/
-                inline-size: calc( round( var(--_square-sum), var(--_square-size) ) - var(--_square-half) );
-                aspect-ratio: 1;
-                background: linear-gradient(135deg, #BE965D, #976F40, #C99B61, #F0BE7B , #FFCB85, #EEBC79, #C0935B, #976F40) 0 0 / 100% 100%;
-                mask:
-                var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
-                var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
-                rotate: 43deg;
-                z-index: -2;
-            }
-  
-            &::after {
-                content: '';
-                position: absolute;
-                inset: auto -8rem -12rem auto;
-                background: var(--primary-2);
-                width: 17.8rem;
-                height: 14rem;
-                border-radius: var(--border-card);
-                z-index: -1;
-                rotate: 47deg;
-            }
+    form {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: var(--space-s);
+        align-items: center;
+        
+    }
 
-            h5 {
-              color: var(--secondary-2);
-              margin-bottom: var(--space-xs);
-            }
-            p {
-              max-width: 30ch;
-            }
-            button {
-              display: inline-flex;
-              align-items: flex-start;
-            }
-  
-            @container (width <= 878px) { 
-              p {
-                  max-width: 100%;
-                }
-            }
-            @container (width > 878px) { 
-                input {
-                  padding-right: var(--space-3xl-4xl);
-                }
-              }
-        }
+    &::before {
+        --square-count: 12;
+        --square-size: var(--step-5);
+        
+        --_square-size: var(--square-size, 1rem);
+        --_square-half: calc(var(--square-size) / 2);
+        --_square-sum: calc(var(--square-count) * var(--square-size));
+        content: '';
+        position: absolute;
+        inset: -10rem -9rem auto auto ;
+        /*inline-size: calc(var(--square-count) * 1.34rem - .67rem);*/
+        inline-size: calc( round( var(--_square-sum), var(--_square-size) ) - var(--_square-half) );
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, #BE965D, #976F40, #C99B61, #F0BE7B , #FFCB85, #EEBC79, #C0935B, #976F40) 0 0 / 100% 100%;
+        mask:
+        var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+        var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+        rotate: 43deg;
+        z-index: -2;
+    }
 
-        footer {
-          margin: var(--space-3xl-7xl) 0;
-        }
+    &::after {
+        content: '';
+        position: absolute;
+        inset: auto -8rem -12rem auto;
+        background: var(--primary-2);
+        width: 17.8rem;
+        height: 14rem;
+        border-radius: var(--border-card);
+        z-index: -1;
+        rotate: 47deg;
+    }
 
+    h5 {
+      color: var(--secondary-2);
+      margin-bottom: var(--space-xs);
+    }
+    p {
+      max-width: 30ch;
+    }
+    button {
+      display: inline-flex;
+      align-items: flex-start;
+    }
+
+    @container (width <= 878px) { 
+      p {
+          max-width: 100%;
+      }
+    }
+    @container (width > 878px) { 
+      input {
+        padding-right: var(--space-3xl-4xl);
+      }
+    }
+  }
+  footer {
+    margin: var(--space-3xl-7xl) 0;
+  }
 }
     
 </style>
