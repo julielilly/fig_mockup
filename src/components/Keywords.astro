@@ -1,0 +1,20 @@
+---
+const { keywordText } = Astro.props;
+---
+
+<span>{keywordText}</span>
+
+<style>
+    @layer components {
+        span{
+            background-color: var(--primary-1);
+            color: var(--primary-3);
+            text-transform: uppercase;
+            padding: 0 var(--space-xs);
+            letter-spacing: 0.145rem;
+            font-family: Lato;
+            border-radius: var(--border-card);
+        }
+        
+    }
+</style>

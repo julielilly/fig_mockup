@@ -1,0 +1,24 @@
+---
+import Keywords from "../components/Keywords.astro";
+const { keywordText, title, text } = Astro.props;
+---
+
+<div>
+    <Keywords keywordText={keywordText}/>
+    <h2>{title}</h2>
+    <p>{text}</p>
+</div>
+
+<style>
+    @layer components {
+       div{
+        max-width: 45ch;
+        padding-bottom: var(--space-m);
+
+        h2 {
+            padding: 14px var(--space-xs);
+        }
+       }
+        
+    }
+</style>
