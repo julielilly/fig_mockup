@@ -1,0 +1,118 @@
+---
+import HeroCard from "../components/HeroCard.astro";
+
+---
+
+<section class="full-bleed">
+    
+    <div class="textbox">
+        <h1>Adam Buschemia Business Consultant</h1>
+        <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+        <button>Book a Meeting</button>
+    </div>
+
+ 
+</section>
+
+<div id="hero-cards">
+    <HeroCard title="Finance & Restructuring" paragraph="Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling." buttonText="Our Services"/>
+    <HeroCard title="Our Approach" paragraph="Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling." buttonText="More About "/>
+    <HeroCard title="Consultalk Result" paragraph="Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling." buttonText="Explore Our Solution"/>
+</div>
+
+<style>
+
+@layer components {
+
+    section {
+        background: var(--primary-3) url("public/images/heroimage.png") right no-repeat;
+  
+        background-position: 100% 0;
+        background-size: contain;
+        aspect-ratio: 3.2/1;
+        position: relative;
+
+        .textbox {
+
+            margin: var(--space-5xl) 0;
+            position: relative;
+            z-index: 3;
+            
+
+            h1, p {
+                color: var(--secondary-2);
+                max-width: 16ch;
+            }
+            p {
+                margin-top: var(--space-m);
+                margin-bottom: var(--space-l);
+                max-width: 50ch;
+            }
+            button {
+                --button: var(--secondary-2);
+                border: solid 0.125rem var(--secondary-2);
+               
+                
+                &:hover {
+                --button: var(--primary-3);
+                }
+                &:active {
+                --button: oklch(from var(--primary-3) calc(l + 0.1) c h);
+                }
+            }
+        }
+
+
+        &::before, &::after {
+                --square-count: 10;
+                --square-size: var(--step-4);
+                --_square-size: var(--square-size, 1rem);
+                --_square-half: calc(var(--square-size) / 2);
+                --_square-sum: calc(var(--square-count) * var(--square-size));
+                content: '';
+                position: absolute;
+                inset: clamp(-10.9375rem, -15.625rem + 23.4375vw, 12.5rem) auto auto -5rem;
+                inline-size: calc(var(--square-count) * 1.34rem - .67rem);
+                inline-size: calc( round( var(--_square-sum), var(--_square-size) ) - var(--_square-half) );
+                aspect-ratio: 1;
+                background: linear-gradient(135deg, #BE965D, #976F40, #C99B61, #F0BE7B , #FFCB85, #EEBC79, #C0935B, #976F40) 0 0 / 100% 100%;
+                mask:
+                var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+                var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+                z-index: 2;
+            }
+  
+             &::after {
+                --square-count: 4;
+                inset: 0 calc(10vw + 35rem) auto auto ;
+            } 
+        
+    }
+
+    @media (width <= 928px) {
+        section {
+            background: var(--primary-3) ;
+
+            .textbox {
+                h1, p {
+                    max-width: 60ch;
+                }
+            } 
+
+            &::after {
+                --square-count: 8;
+                inset: 0 0 auto auto ;   
+            }
+        }
+    }
+
+    #hero-cards {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: -5%;
+
+        
+    }
+}
+</style>

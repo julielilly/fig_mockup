@@ -1,5 +1,7 @@
 ---
 
+import Popover from "../components/Popover.astro";
+
 ---
 
 <header>
@@ -12,13 +14,10 @@
                 <li><a href="/team/">Team</a></li>
                 <li><a href="/about/">About</a></li>
             </ul>
-            <button popovertarget="login">Login</button>
+            <button popovertarget="login" id="login_button">Login</button>
         </div>
 
-        <div popover id="login">
-            <h2>I'm a popup</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-        </div>
+        <Popover item_id="login" />
 
         <div class="header_content">
             <a href="/"> <h5 id="logo"> AskExperts </h5> </a> 
@@ -58,6 +57,7 @@
             background: oklch(from var(--primary-3) calc(l + 0.1) c h);
             position: sticky;
             top: 0;
+            z-index: 100;
 
         }
 
@@ -158,5 +158,15 @@
                 display: none;
             }
         }
+
+        #login_button {
+            border-radius: 1.25rem;
+            padding: var(--space-3xs) var(--space-s);
+
+            &:hover {
+                --button: oklch(from var(--primary-1) calc(l - 0.1) c h);
+                color: var(--primary-3);
+             }
+        } 
     }
 </style>

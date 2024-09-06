@@ -1,0 +1,52 @@
+---
+const { title, paragraph, buttonText } = Astro.props;
+---
+
+<div>
+    <h6>{title}</h6>
+    <p>{paragraph}</p>
+    <button>{buttonText}</button>
+</div>
+
+<style>
+    @layer components {
+        div {
+            padding: 46px;
+            border-radius: var(--border-card);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            background: rgba(38, 38, 38, 0.90);
+            backdrop-filter: blur(16px);
+            flex: 1 0 0;
+            aspect-ratio: 3/1;
+
+            h6, p {
+                color: var(--secondary-2);
+            }
+            h6 {
+                font-size: var( --step-2);
+            }
+            p {
+                margin: 10px 0 36px 0;
+            }
+            h6, button {
+                text-wrap: nowrap;
+            }
+
+            button {
+                color: var(--button-color, var(--secondary-2));
+                background: var(--button, var(--primary-3));
+            
+                padding: var(--space-xs) var(--space-s);
+                border: solid 0.125rem var(--primary-3);
+
+                &:hover {
+                --button: transparent;
+                
+                }
+                &:active {
+                --button: oklch(from var(--primary-3) calc(l + 0.1) c h);
+                }
+            }
+        }
+    }
+</style>

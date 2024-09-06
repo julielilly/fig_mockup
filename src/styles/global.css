@@ -19,59 +19,74 @@
     /* Step 0: 16px → 16px */
     --step-0: clamp(1rem, 1rem + 0vw, 1rem);
     /* Step 1: 17.072px → 18px */
-    --step-1: clamp(1.067rem, 1.0468rem + 0.1009vw, 1.125rem);
+    --step-1: clamp(1.067rem, 1.0554rem + 0.058vw, 1.125rem);
     /* Step 2: 18.2158px → 20.25px */
-    --step-2: clamp(1.1385rem, 1.0943rem + 0.2211vw, 1.2656rem);
+    --step-2: clamp(1.1385rem, 1.1131rem + 0.1271vw, 1.2656rem);
     /* Step 3: 19.4363px → 22.7813px */
-    --step-3: clamp(1.2148rem, 1.1421rem + 0.3636vw, 1.4238rem);
+    --step-3: clamp(1.2148rem, 1.173rem + 0.2091vw, 1.4238rem);
     /* Step 4: 20.7385px → 25.6289px */
-    --step-4: clamp(1.2962rem, 1.1898rem + 0.5316vw, 1.6018rem);
+    --step-4: clamp(1.2962rem, 1.235rem + 0.3056vw, 1.6018rem);
     /* Step 5: 22.128px → 28.8325px */
-    --step-5: clamp(1.383rem, 1.2372rem + 0.7288vw, 1.802rem);
+    --step-5: clamp(1.383rem, 1.2992rem + 0.419vw, 1.802rem);
     /* Step 6: 23.6106px → 32.4366px */
-    --step-6: clamp(1.4757rem, 1.2838rem + 0.9593vw, 2.0273rem);
+    --step-6: clamp(1.4757rem, 1.3653rem + 0.5516vw, 2.0273rem);
     /* Step 7: 25.1925px → 36.4912px */
-    --step-7: clamp(1.5745rem, 1.3289rem + 1.2281vw, 2.2807rem);
+    --step-7: clamp(1.5745rem, 1.4333rem + 0.7062vw, 2.2807rem);
     /* Step 8: 26.8804px → 41.0526px */
-    --step-8: clamp(1.68rem, 1.3719rem + 1.5405vw, 2.5658rem);
+    --step-8: clamp(1.68rem, 1.5029rem + 0.8858vw, 2.5658rem);
     /* Step 9: 28.6814px → 46.1841px */
-    --step-9: clamp(1.7926rem, 1.4121rem + 1.9025vw, 2.8865rem);
+    --step-9: clamp(1.7926rem, 1.5738rem + 1.0939vw, 2.8865rem);
     /* Step 10: 30.603px → 51.9571px */
-    --step-10: clamp(1.9127rem, 1.4485rem + 2.3211vw, 3.2473rem);
+    --step-10: clamp(1.9127rem, 1.6458rem + 1.3346vw, 3.2473rem);
 
     /* spacing */
     /* @link https://utopia.fyi/space/calculator?c=320,12,1.067,1240,16,1.125,10,0,&s=0.75|0.5|0.25,1.5|2|2.5|3|4|5|6|8|9,3xl-7xl&g=s,l,xl,12 */
 
     /* Space 3xs: 3px → 4px */
-    --space-3xs: clamp(0.1875rem, 0.1658rem + 0.1087vw, 0.25rem);
+    --space-3xs: clamp(0.1875rem, 0.175rem + 0.0625vw, 0.25rem);
     /* Space 2xs: 6px → 8px */
-    --space-2xs: clamp(0.375rem, 0.3315rem + 0.2174vw, 0.5rem);
+    --space-2xs: clamp(0.375rem, 0.35rem + 0.125vw, 0.5rem);
     /* Space xs: 9px → 12px */
-    --space-xs: clamp(0.5625rem, 0.4973rem + 0.3261vw, 0.75rem);
+    --space-xs: clamp(0.5625rem, 0.525rem + 0.1875vw, 0.75rem);
     /* Space s: 12px → 16px */
-    --space-s: clamp(0.75rem, 0.663rem + 0.4348vw, 1rem);
+    --space-s: clamp(0.75rem, 0.7rem + 0.25vw, 1rem);
     /* Space m: 18px → 24px */
-    --space-m: clamp(1.125rem, 0.9946rem + 0.6522vw, 1.5rem);
+    --space-m: clamp(1.125rem, 1.05rem + 0.375vw, 1.5rem);
     /* Space l: 24px → 32px */
-    --space-l: clamp(1.5rem, 1.3261rem + 0.8696vw, 2rem);
+    --space-l: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
     /* Space xl: 30px → 40px */
-    --space-xl: clamp(1.875rem, 1.6576rem + 1.087vw, 2.5rem);
+    --space-xl: clamp(1.875rem, 1.75rem + 0.625vw, 2.5rem);
     /* Space 2xl: 36px → 48px */
-    --space-2xl: clamp(2.25rem, 1.9891rem + 1.3043vw, 3rem);
+    --space-2xl: clamp(2.25rem, 2.1rem + 0.75vw, 3rem);
     /* Space 3xl: 48px → 64px */
-    --space-3xl: clamp(3rem, 2.6522rem + 1.7391vw, 4rem);
+    --space-3xl: clamp(3rem, 2.8rem + 1vw, 4rem);
     /* Space 4xl: 60px → 80px */
-    --space-4xl: clamp(3.75rem, 3.3152rem + 2.1739vw, 5rem);
+    --space-4xl: clamp(3.75rem, 3.5rem + 1.25vw, 5rem);
     /* Space 5xl: 72px → 96px */
-    --space-5xl: clamp(4.5rem, 3.9783rem + 2.6087vw, 6rem);
+    --space-5xl: clamp(4.5rem, 4.2rem + 1.5vw, 6rem);
     /* Space 6xl: 96px → 128px */
-    --space-6xl: clamp(6rem, 5.3043rem + 3.4783vw, 8rem);
+    --space-6xl: clamp(6rem, 5.6rem + 2vw, 8rem);
     /* Space 7xl: 108px → 144px */
-    --space-7xl: clamp(6.75rem, 5.9674rem + 3.913vw, 9rem);
+    --space-7xl: clamp(6.75rem, 6.3rem + 2.25vw, 9rem);
 
     /* Custom pairs */
     /* Space 3xl-7xl: 48px → 144px */
-    --space-3xl-7xl: clamp(3rem, 0.913rem + 10.4348vw, 9rem);
+    --space-3xl-7xl: clamp(3rem, 1.8rem + 6vw, 9rem);
+    /* Space 3xl-4xl: 48px → 80px */
+    --space-3xl-4xl: clamp(3rem, 2.3043rem + 3.4783vw, 5rem);
+
+    /* border radius */
+    --border-card: 1.25rem;
+
+    /* patterns */
+    --square-pattern: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="red"><path d="M7.47662 4.02206C6.50635 3.05178 5.53232 2.07774 4.56205 1.10745C4.28482 0.83023 3.80905 0.83023 3.53183 1.10745C2.56155 2.07774 1.59128 3.04803 0.621002 4.02206C0.343781 4.29929 0.343781 4.77506 0.621002 5.05229C1.59128 6.02258 2.5653 6.99661 3.53558 7.9669C3.8128 8.24412 4.28857 8.24412 4.56579 7.9669C5.53607 6.99661 6.51009 6.02258 7.48037 5.05229C7.63022 4.90244 7.69016 4.73011 7.69016 4.56527C7.69016 4.55403 7.69016 4.54654 7.69016 4.5353C7.69016 4.52781 7.69016 4.51657 7.69016 4.50908C7.69016 4.34424 7.63022 4.17191 7.47662 4.02206ZM4.04881 6.41968C3.41944 5.79031 2.79382 5.16468 2.16445 4.5353C2.79382 3.90593 3.41944 3.2803 4.04881 2.65092C4.67818 3.2803 5.3038 3.90593 5.93317 4.5353C5.3038 5.16468 4.67818 5.79031 4.04881 6.41968Z"/></svg>');
+  }
+
+  html {
+    background-color: var(--primary-3);
+  }
+  body {
+    background-color: var(--secondary-2);
   }
 
   h1,
@@ -131,14 +146,22 @@
     margin: 0;
     list-style: none;
   }
+  input {
+    display: inline-flex;
+    padding: var(--space-m) var(--space-7xl) var(--space-m) var(--space-l);
+    align-items: center;
+    border-radius: 3.375rem;
+    background: var(--secondary-2);
+    color: var(--primary-3);
+  }
   button {
     color: var(--button-color, var(--primary-3));
+    background: var(--button, var(--primary-1));
     font-size: var(--step-1);
     line-height: 1.6;
-
-    background: var(--button, var(--primary-1));
-    border-radius: 1.25rem;
-    padding: var(--space-3xs) var(--space-s);
+    padding: var(--space-xs) var(--space-l);
+    border-radius: 2.625rem;
+    border: solid 0.125rem var(--primary-1);
 
     &:hover {
       --button: var(--primary-3);
@@ -185,8 +208,8 @@
   body {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: [full-start] 1fr [content-start] minmax(0, 85ch) [content-end] 1fr [full-end];
-    gap: 2ch;
+    grid-template-columns: [full-start] 1fr [content-start] minmax(0, 90ch) [content-end] 1fr [full-end];
+    column-gap: 2ch;
   }
 
   header,

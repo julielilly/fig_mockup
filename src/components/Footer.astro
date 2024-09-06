@@ -3,13 +3,46 @@
 ---
 
 <footer>
-    <h1>footer</h1>
+    <div>
+        <h5>AskExperts</h5>
+        <span class="seperator"></span>
+        <p>©2022 Consultalk. All rights reserved <span>|</span> <br> Terms of Service <span>|</span> <br> Privacy Policy</p>
+    </div>
 </footer>
 
 <style>
     @layer components {
-        footer {
+        footer, h5 {
             background: var(--primary-3);
+            color: var(--secondary-2);
         } 
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-l);
+            padding: var(--space-xl) 0;
+            margin: auto;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+        }
+        .seperator {
+            display: inline-block;
+            width: 100%;
+            height: 1px;
+            background: oklch(from var(--secondary-2) calc(l - 0.5) c h);
+        }
+
+        @media (width <= 625px) {
+            span:not(.seperator) {
+                display: none;
+            }
+        }
+        @media (width > 625px) {
+            br {
+                display: none;
+            }
+        }
     }
 </style>

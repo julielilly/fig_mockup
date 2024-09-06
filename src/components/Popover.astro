@@ -1,0 +1,44 @@
+---
+const { item_id } = Astro.props;
+---
+
+<div popover id={item_id} class="popover">
+    <h2>Dashboard Login</h2>
+    <form>
+        <input type="email" class="email" name="email" placeholder="Enter Email" required>
+        <input type="password" class="password" name="password" placeholder="Enter Password" required>
+        <button>Go to dashboard</button>
+    </form>
+</div>
+
+
+
+<style>
+
+@layer components {
+
+    .popover {
+        text-align: center;
+        background: var(--primary-3);
+        padding: var(--space-xl) var(--space-3xl);
+        border-radius: 1.875rem;
+        width: 39.375rem;
+        max-width: 95%;
+
+        h2 {
+            font-weight: 700;
+            color: var(--secondary-2);
+            padding-bottom: var(--space-2xl);
+        }
+
+        > form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-l);
+            align-items: center;
+        }
+    }
+    
+}
+
+</style>
