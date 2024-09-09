@@ -1,0 +1,104 @@
+---
+import SectionIntro from "../components/SectionIntro.astro";
+
+import Value from "../components/Value.astro";
+const { data } = Astro.props;
+
+console.log(data);
+---
+
+<section class="full-bleed">
+
+    <div class="section-intro">
+        <SectionIntro keywordText="Growing with our Clients" title={data.title} text={data.subtitle} backgroundColor="var(--primary-1)" textColor="var(--primary-3)"/>
+        <button>Get in touch</button>
+    </div>
+
+    <ul>
+        {data.values.map(value => <Value {value} />)}
+    </ul>
+    
+    
+    
+ </section>
+
+ <style>
+    @layer components {
+        section {
+            background: var(--primary-3);
+            padding: 6.25rem 0;
+
+            p, h2 {
+                color: var(--secondary-2);
+            }
+            button {
+                color: var(--button-color, var(--primary-3));
+                background: var(--button, var(--secondary-2));
+                border: solid 0.125rem var(--secondary-2);
+
+                place-self: end;
+
+                &:hover {
+                --button: var(--primary-3);
+                --button-color: var(--secondary-2);
+                }
+                &:active {
+                --button: oklch(from var(--primary-3) calc(l + 0.15) c h);
+                }
+            }
+
+            ul {
+                margin-top: var(--space-l);
+
+                display: flex;
+                flex-wrap: wrap;
+                align-items: start;
+                place-content: center;
+                gap: var(--space-l);
+
+                li {
+                    max-width: 12.75rem;
+                }
+            }
+
+            .section-intro {
+                display: flex;
+                justify-content: space-between;
+                 
+                div {
+                    max-width: 60ch;
+                    padding-bottom: 0;
+                }
+            }
+        }
+       
+
+        @media (width <= 945px) { 
+
+            section {
+                .section-intro {
+                    flex-direction: column;
+                }
+    
+                ul {
+                    align-items: stretch;
+    
+                    li {
+                        max-width: 100%;
+                    }
+                }
+            }
+         }
+
+        @media (width <= 615px) { 
+            section {
+                ul {
+
+                    li {
+                        max-width: 47%;
+                    }
+                }
+             }
+        }
+    }
+ </style>

@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+
+// const icons = import.meta.glob('/src/icons/*.{svg}');
+
+const { value } = Astro.props;
+const { icon, title, description, name, link} = value;
+
+---
+ 
+
+<li>
+    <Icon name="sheet" />
+
+    <div>
+        <h6>{title}</h6>
+        <p>{description}</p>
+    </div>
+
+    <a href={link.url}>
+        {link.text}
+        <img src="src/icons/arrow.svg" alt="arrow">
+    </a>
+
+</li>
+
+<style>
+    @layer components {
+      svg {
+        width: 3.3rem;
+      }
+      h6 {
+        margin-bottom: var(--space-2xs);
+        font-size: var( --step-2);
+      }
+      li {
+        padding: var(--space-l) var(--space-m);
+        border-radius: var(--border-card);
+
+        background-color: var(--secondary-1);
+        
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-m);
+
+        h6, a, div > p {
+            color: var(--primary-3);
+        }
+
+        a {
+            display: flex;
+            gap: var(--space-2xs);
+        
+            img {
+                width: var(--step-0);
+            }
+
+            &:hover {
+                color: oklch(from var(--primary-3) calc(l + 0.2) c h);
+            }
+        }
+      }
+
+        @media (width <= 945px) { 
+            li {
+                justify-content: space-between;
+            }
+            
+        }
+    }
+ </style>
