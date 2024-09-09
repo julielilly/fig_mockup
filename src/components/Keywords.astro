@@ -1,14 +1,14 @@
 ---
-const { keywordText } = Astro.props;
+const { keywordText, backgroundColor, textColor } = Astro.props;
 ---
 
 <span>{keywordText}</span>
 
-<style>
+<style define:vars={{ textColor, backgroundColor }}>
     @layer components {
         span{
-            background-color: var(--primary-1);
-            color: var(--primary-3);
+            background-color: var(--backgroundColor);
+            color: var(--textColor);
             text-transform: uppercase;
             padding: 0 var(--space-xs);
             letter-spacing: 0.145rem;

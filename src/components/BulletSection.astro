@@ -2,7 +2,7 @@
 import SectionIntro from "../components/SectionIntro.astro";
 import Bullets from "../components/Bullets.astro";
 
-const { keywordText, title, text } = Astro.props;
+const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
 ---
 
 <section>
@@ -10,7 +10,7 @@ const { keywordText, title, text } = Astro.props;
         <img src="/images/expectations.png" alt="small group of people talking">
     </div>
     <div>
-        <SectionIntro keywordText={keywordText} title={title} text={text}/>
+        <SectionIntro keywordText={keywordText} title={title} text={text} backgroundColor={backgroundColor} textColor={textColor}/>
         <Bullets bulletOne="Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day." bulletTwo="Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital."/>
     </div>
 </section>

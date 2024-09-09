@@ -1,10 +1,10 @@
 ---
 import Keywords from "../components/Keywords.astro";
-const { keywordText, title, text } = Astro.props;
+const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
 ---
 
 <div>
-    <Keywords keywordText={keywordText}/>
+    <Keywords keywordText={keywordText} backgroundColor={backgroundColor} textColor={textColor}/>
     <h2>{title}</h2>
     <p>{text}</p>
 </div>
