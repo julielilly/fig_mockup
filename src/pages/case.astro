@@ -4,12 +4,19 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import PageLanding from "../components/PageLanding.astro";
 import BulletSection from "../components/BulletSection.astro";
+import Numbers from "../components/Numbers.astro";
+import CoreValues from "../components/CoreValues.astro";
+
+const valueData = await fetch(
+    "https://raw.githubusercontent.com/julielilly/frontend-design/main/resources/json/corevalues.json"
+).then((res) => res.json());
 ---
 
 <Layout title="AskExperts - Case Study">
 
   <PageLanding keywordText="services" title="Creative Services For Boost Your Business Growth" image="/images/case.png" alt="people at a meeting"/>
   <BulletSection keywordText="our vision" backgroundColor="var(--primary-2)" textColor="var(--secondary-2)" title="Turn your ideas into reality." text="Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps." direction="row-reverse" beforeLeft="auto" beforeRight="calc(var(--image-offset) / -1)" afterLeft="auto" afterRight="calc(var(--image-offset) / -2)"/>
-
+  <Numbers/>
+  <CoreValues data={valueData} class="full-bleed light"/>
 	
   </Layout>

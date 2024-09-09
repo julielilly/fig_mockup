@@ -2,11 +2,11 @@
 import SectionIntro from "../components/SectionIntro.astro";
 
 import Value from "../components/Value.astro";
-const { data } = Astro.props;
+const { data, class: className } = Astro.props;
 
 ---
 
-<section class="full-bleed">
+<section class={className}>
 
     <div class="section-intro">
         <SectionIntro keywordText="Growing with our Clients" title={data.title} text={data.subtitle} backgroundColor="var(--primary-1)" textColor="var(--primary-3)"/>
@@ -23,6 +23,33 @@ const { data } = Astro.props;
 
  <style>
     @layer components {
+        .light {
+            background: var(--secondary-1);
+
+            p, h2 {
+                color: var(--primary-3);
+            }
+
+            ul li {
+                background: var(--secondary-2);
+            }
+
+            button {
+                color: var(--button-color, var(--secondary-2));
+                background: var(--button, var(--primary-3));
+                border: solid 0.125rem var(--primary-3);
+
+                place-self: end;
+
+                &:hover {
+                --button: var(--secondary-1);
+                --button-color: var(--primary-3);
+                }
+                &:active {
+                --button: oklch(from var(--primary-3) calc(l + 0.15) c h);
+                }
+            }
+        }
         section {
             background: var(--primary-3);
             padding: 6.25rem 0;
