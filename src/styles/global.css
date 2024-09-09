@@ -168,8 +168,12 @@
       --button-color: var(--secondary-2);
     }
     &:active {
-      --button: oklch(from var(--primary-3) calc(l + 0.1) c h);
+      --button: oklch(from var(--primary-3) calc(l + 0.15) c h);
     }
+  }
+
+  * {
+    transition: border, color, background-color 0.5s linear;
   }
 
   .container {
@@ -206,9 +210,10 @@
 
   /* layout */
   body {
+    --content-width: 90ch;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: [full-start] 1fr [content-start] minmax(0, 90ch) [content-end] 1fr [full-end];
+    grid-template-columns: [full-start] 1fr [content-start] minmax(0, var(--content-width)) [content-end] 1fr [full-end];
     column-gap: 2ch;
   }
 

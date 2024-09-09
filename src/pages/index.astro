@@ -4,11 +4,18 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import BulletSection from "../components/BulletSection.astro";
+import ScrollingContainer from "../components/ScrollingContainer.astro";
+
+const financialData = await fetch(
+    "https://raw.githubusercontent.com/julielilly/frontend-design/main/resources/json/projections.json"
+).then((res) => res.json());
+
 ---
 
 <Layout title="AskExperts">
 
   <Hero/>
   <BulletSection keywordText="we'll work with you" title="What To Expect" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
+  <ScrollingContainer data={financialData}/>
 	
   </Layout>

@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+
+// const icons = import.meta.glob('/src/icons/*.{svg}');
+
+const { card } = Astro.props;
+const { icon, title, description, name} = card;
+
+---
+ 
+
+<div>
+    <Icon name="sheet" />
+    <h6>{title}</h6>
+    <p>{description}</p>
+</div>
+
+<style>
+    @layer components {
+      svg {
+        width: 2.12rem;
+      }
+      h6 {
+        margin: var(--space-m) 0 var( --space-2xs) 0;
+      }
+      div {
+        padding: var(--space-2xl) var(--space-l);
+        min-width: 21.56rem;
+        background-color: var(--secondary-1);
+        border-radius: var(--border-card);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+ </style>

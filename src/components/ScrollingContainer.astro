@@ -1,0 +1,129 @@
+---
+import FinancialCard from "../components/FinancialCard.astro";
+const { data } = Astro.props;
+
+
+---
+
+<section class="full-bleed">
+    <div>
+        <img src="src/icons/financial.svg" alt="">
+        <h1>{data.title}</h1>
+        <p>{data.subtitle}</p>
+        <div>
+            <button class="arrow left-arrow"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="Vector" d="M1 6.78174H14.068M14.068 6.78174L8.72198 1.43579M14.068 6.78174L8.72198 12.1278" stroke="#141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg></button>
+            <button class="arrow right-arrow"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="Vector" d="M1 6.78174H14.068M14.068 6.78174L8.72198 1.43579M14.068 6.78174L8.72198 12.1278" stroke="#141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg></button>
+        </div>
+    </div>
+
+    <ul class="full-bleed">
+        {data.values.map(card => <FinancialCard {card} />)}
+    </ul>
+    
+    
+    
+ </section>
+
+ <style>
+    @layer components {
+        img {
+            width: 6.25rem;
+            grid-column: 1;
+            
+        }
+        h1 {
+            margin: var(--space-s) 0;
+            grid-column: 1;
+        }
+        p {
+            max-width: 70ch;
+            grid-row: 3;
+            grid-column: 1;
+        }
+        div{
+            display: grid;
+            gap: var(--space-l);
+            
+            > div {
+                grid-row: 3;
+                display: flex;
+                gap: var(--space-m);
+                place-self: end;
+            }
+        }
+
+        .arrow {
+            width: 4.375rem;
+            height: 4.375rem;
+            padding: var(--space-2xs);
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+              width: 1.875rem;
+            }
+            &:first-of-type {
+                transform: scaleX(-1);
+            }
+
+            &:hover {
+                --button-color: var(--secondary-2);
+                border: solid 0.125rem var(--primary-3);
+
+                svg {
+                    stroke: white;
+                }
+            }
+        }
+
+        ul {
+            margin-top: var(--space-3xl);
+            grid-column: full;
+            display: flex;
+            gap: var(--space-l);
+            overflow-x: auto;
+            padding-inline: max(1rem, 50% - var(--content-width) / 2);
+
+            scroll-snap-type: x mandatory;
+
+            > * {
+                scroll-snap-align: center;
+                scroll-snap-stop: always;
+
+                align-self: start;
+
+                &:hover {
+                    background-color: var(--primary-3);
+                    color: var(--secondary-2);
+                
+                    h6 {
+                        color: var(--secondary-2);
+                    }
+                    svg path{
+                        fill: var(--primary-3);
+                    }
+                }
+            }
+        }
+
+        @media (width <= 650px) { 
+            div{
+            grid-template-columns: 1fr;
+
+            > div {
+                grid-row: 4;
+
+            }
+            
+        }
+            }
+    }
+ </style>
+
+
