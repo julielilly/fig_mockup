@@ -7,6 +7,7 @@ import BulletSection from "../components/BulletSection.astro";
 import ScrollingContainer from "../components/ScrollingContainer.astro";
 import DiagramSection from "../components/DiagramSection.astro";
 import CoreValues from "../components/CoreValues.astro";
+import Contact from "../components/Contact.astro";
 
 const financialData = await fetch(
     "https://raw.githubusercontent.com/julielilly/frontend-design/main/resources/json/projections.json"
@@ -25,5 +26,6 @@ const valueData = await fetch(
   <ScrollingContainer data={financialData}/>
   <DiagramSection keywordText="Experience" backgroundColor="var(--secondary-1)" textColor="var(--primary-3)" title="More than 25 years of experience" text="3000+ our clients are insured around the World"/>
 	<CoreValues data={valueData}/>
+  <Contact/>
 
   </Layout>
