@@ -1,0 +1,55 @@
+---
+import Diagram from "../components/Diagram.astro";
+import Keywords from "../components/Keywords.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+
+const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
+---
+
+<section class="full-bleed">
+
+    <div>
+        <SectionIntro keywordText={keywordText} title={title} text={text} backgroundColor={backgroundColor} textColor={textColor}/>
+
+        <div class="digrams">
+            <Diagram percent="85%" description="Consistency"/>
+            <Diagram percent="95%" description="Improvement"/>
+            <Diagram percent="90%" description="Branching"/>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    @layer components {
+        
+        section {
+            background-color: var(--primary-1);
+            padding: var(--space-3xl-7xl) 0;
+            
+            > div {
+                display: grid;
+                grid-template-columns: 36ch auto;
+                justify-content: space-between;
+            }
+
+            .digrams {
+                display: grid;
+                grid-template-columns: repeat(3, max-content);
+                gap: var(--space-m);
+
+            }
+            
+        }
+
+        @media (width <= 850px) {
+            section {
+                > div {
+                    grid-template-columns: 1fr;
+                    justify-content: space-between;
+                }
+            
+        }
+        }
+    }
+</style>

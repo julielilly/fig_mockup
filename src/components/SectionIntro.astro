@@ -16,9 +16,15 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
         padding-bottom: var(--space-m);
 
         h2 {
-            padding: 14px var(--space-xs);
+            padding: var(--space-xs) 0;
         }
        }
+
+       @media (width <= 850px) {
+            div{
+            max-width: 65ch;
+            }
+        }
         
     }
 </style>

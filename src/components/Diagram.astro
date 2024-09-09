@@ -1,0 +1,75 @@
+---
+const { percent, description } = Astro.props;
+---
+
+<div class="diagram">
+    <div class="parent">
+        <h2>{percent}</h2>
+        <div class="child" style="--percent: 0 !important">
+        </div>
+    </div>
+
+    <h6>{description}</h6>
+</div>
+
+<style define:vars={{ percent }}>
+    @layer components {
+
+        @property --percent {
+            syntax: "<percentage>";
+            inherits: true;
+            initial-value: 0%;
+        }
+
+        .parent {
+            --offset-pos: var(--space-3xs);
+            border: var(--offset-pos) solid transparent;
+            background: 
+                linear-gradient(var(--primary-1), var(--primary-1)) padding-box,
+                radial-gradient(circle at 50% 0.156rem, var(--secondary-2) 0.156rem, #0000 0) border-box,
+                conic-gradient(var(--secondary-2) var(--percent), oklch(from var(--primary-1) calc(l - 0.075) c h) 0) border-box;
+        
+            display: grid;
+            place-content: center; 
+            /* 125px til 150px */
+            width: clamp(7.8125rem, 7.269rem + 2.7174vw, 9.375rem);
+    
+            animation: --pie linear both;
+            animation-timeline: view(block);
+            animation-range: entry 100% contain 40%;
+        
+            .child {
+                width: calc(var(--offset-pos) * 6);
+                background: var(--primary-3);
+                border: solid var(--offset-pos) var(--secondary-2);
+                offset-path: border-box;
+                offset-distance: var(--percent);
+                offset-anchor: 50% calc(var(--offset-pos) / 0.5);
+
+                grid-area: 1 / 1;
+            }
+            h2 {
+                grid-area: 1 / 1;
+            }
+            
+        }
+        div {
+            border-radius: 100%;
+            aspect-ratio: 1;
+        }
+
+        @keyframes --pie {
+            from {
+                --percent: 0%;
+            }
+        } 
+
+        .diagram {
+            display: grid;
+            text-align: center;
+            gap: var(--space-2xs);
+            width: clamp(7.8125rem, 7.269rem + 2.7174vw, 9.375rem);
+            
+        }
+    }
+</style>
