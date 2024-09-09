@@ -1,0 +1,51 @@
+---
+import Keywords from "../components/Keywords.astro";
+
+const { keywordText, title, image, alt } = Astro.props;
+---
+
+<section class="full-bleed">
+
+    <img src={image} alt={alt}>
+
+    <div>
+        <Keywords keywordText={keywordText} backgroundColor="var(--primary-1)" textColor="var(--primary-3)"/>
+        <h1>{title}</h1>
+    </div>
+
+</section>
+
+<style>
+    @layer components {
+
+        section {
+            min-height: 50svh;
+
+            > * {
+                grid-row: 1;
+            }
+           
+            img {
+                grid-column: full;
+                height: 100%;
+                object-fit: cover;
+                object-position: 30%;
+            }
+
+            div {
+                margin: auto 0;
+                place-self: start;
+                
+                border-radius: var(--border-card);
+                padding: var(--space-2xl) var(--space-3xl);
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(5.5px);
+
+                h1 {
+                    max-width: 18ch;
+                    padding-top: var(--space-s);
+                }
+            }
+        }
+    }
+</style>

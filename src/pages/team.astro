@@ -3,6 +3,7 @@ import "../styles/global.css";
 
 import Layout from "../layouts/Layout.astro";
 import EmployeeSection from "../components/EmployeeSection.astro";
+import PageLanding from "../components/PageLanding.astro";
 
 const employeeData1 = await fetch(
     "https://raw.githubusercontent.com/julielilly/frontend-design/main/resources/json/employees.json"
@@ -15,6 +16,8 @@ const employeeData1 = await fetch(
 
 <Layout title="AskExperts - Team">
 
-	<EmployeeSection data={employeeData1}/>
+  <PageLanding keywordText="team" title="The Consultors" image="/images/team.png" alt="people at a meeting"/>
+	
+  <EmployeeSection data={employeeData1}/>
 	
   </Layout>
