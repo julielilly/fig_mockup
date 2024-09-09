@@ -22,9 +22,10 @@ const { bulletOne, bulletTwo } = Astro.props;
         li {
             display: grid;
             grid-template-columns: auto 1fr;
-            align-items: center;
+            align-items: start;
             gap: var(--space-s);
             max-width: 45ch;
+            
         }
 
         li:before {
@@ -32,6 +33,7 @@ const { bulletOne, bulletTwo } = Astro.props;
             width: 1.6rem;
             aspect-ratio: 1;
             background: var(--checkmark-icon) 50% 50% / contain no-repeat;
+            
         }
         
     }

@@ -3,12 +3,13 @@ import "../styles/global.css";
 
 import Layout from "../layouts/Layout.astro";
 import PageLanding from "../components/PageLanding.astro";
+import BulletSection from "../components/BulletSection.astro";
 ---
 
 <Layout title="AskExperts - Case Study">
 
   <PageLanding keywordText="services" title="Creative Services For Boost Your Business Growth" image="/images/case.png" alt="people at a meeting"/>
-
+  <BulletSection keywordText="our vision" backgroundColor="var(--primary-2)" textColor="var(--secondary-2)" title="Turn your ideas into reality." text="Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps." direction="row-reverse" beforeLeft="auto" beforeRight="calc(var(--image-offset) / -1)" afterLeft="auto" afterRight="calc(var(--image-offset) / -2)"/>
 
 	
   </Layout>

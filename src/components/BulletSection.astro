@@ -2,7 +2,7 @@
 import SectionIntro from "../components/SectionIntro.astro";
 import Bullets from "../components/Bullets.astro";
 
-const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
+const { keywordText, title, text, backgroundColor, textColor, direction, beforeLeft, beforeRight, afterLeft, afterRight } = Astro.props;
 ---
 
 <section>
@@ -15,11 +15,11 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
     </div>
 </section>
 
-<style>
+<style define:vars={{ direction, beforeLeft, beforeRight, afterLeft, afterRight}}>
     @layer components {
         section {
             display: flex;
-            flex-direction: row;
+            flex-direction: var(--direction);
             gap: var(--space-4xl);
 
             margin: var(--space-3xl-7xl) 0;
@@ -31,6 +31,7 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
                 margin-top: var(--image-offset);
 
                 &::before {
+                    --before-offset: calc(var(--image-offset) / -1);
                     --square-count: 12;
                     --square-size: var(--step-4);
                     --_square-size: var(--square-size, 1rem);
@@ -38,8 +39,9 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
                     --_square-sum: calc(var(--square-count) * var(--square-size));
                     content: '';
                     position: absolute;
-                    inset: calc(var(--image-offset) / -1)  auto auto auto;
-                    margin-left: calc(var(--image-offset) / -1);
+                    top: var(--before-offset);
+                    left: var(--beforeLeft);
+                    right: var(--beforeRight);
                     inline-size: calc( round( var(--_square-sum), var(--_square-size) ) - var(--_square-half) );
                     aspect-ratio: 1;
                     background: linear-gradient(135deg, #BE965D, #976F40, #C99B61, #F0BE7B , #FFCB85, #EEBC79, #C0935B, #976F40) 0 0 / 100% 100%;
@@ -47,20 +49,21 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
                     var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
                     var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
                     z-index: -2;
-            }
+                }
   
-            &::after {
-                content: '';
-                position: absolute;
-                inset: calc(var(--image-offset) / -2)  auto auto auto;
-                margin-left: calc(var(--image-offset) / -2);
-                background: var(--primary-2);
-                width: 11.44rem;
-                height: 10.25rem;
-                border-radius: var(--border-card);
-                z-index: -1;
-                
-            }
+                &::after {
+                    --after-offset: calc(var(--image-offset) / -2);
+                    content: '';
+                    position: absolute;
+                    top: var(--after-offset);
+                    left: var(--afterLeft);
+                    right: var(--afterRight);
+                    background: var(--primary-2);
+                    width: 11.44rem;
+                    height: 10.25rem;
+                    border-radius: var(--border-card);
+                    z-index: -1; 
+                }
                 img {
                     border-radius: var(--border-card);           
                 }
