@@ -1,0 +1,71 @@
+---
+import AccordionItem from "../components/AccordionItem.astro";
+import Keywords from "../components/Keywords.astro";
+
+const { exclusive } = Astro.props;
+---
+
+<section class="accordion-container" data-exclusive={exclusive}>
+    <Keywords keywordText="faq" backgroundColor="var(--primary-2)" textColor="var(--secondary-2)"/>
+    <h2>Customer Questions</h2>
+    <ul>
+        <AccordionItem question="What will happen when I’ve sent my application?" answer="Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements." />
+        <AccordionItem question="Can I get a free trial before I purchase?" answer="Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements." />
+        <AccordionItem question="What should I include in my personal statement?" answer="Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements." />
+        <AccordionItem question="Will membership plans be charged automatically?" answer="Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements." />
+        <AccordionItem question="What will happen when I’ve sent my application?" answer="Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements." />
+        <AccordionItem question="Can I get a free trial before I purchase?" answer="Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements." />
+    </ul>
+</section>
+
+<script>
+    // @ts-nocheck
+    const accordionWrappers = document.querySelectorAll(".accordion-container");
+  
+    accordionWrappers.forEach((accordionWrapper) => {
+      accordionWrapper.addEventListener("click", (event) => {
+        const button = event.target;
+        const article = button.closest("article");
+        const exclusive = accordionWrapper.dataset.exclusive;
+  
+        if (!article || button.tagName.toLowerCase() !== "button") {
+          return;
+        }
+  
+        const expanded = button.getAttribute("aria-expanded") === "true" || false;
+  
+        if (exclusive === "true") {
+          const currentExpanded = accordionWrapper.querySelector(
+            '[aria-expanded="true"]'
+          );
+  
+          if (currentExpanded && currentExpanded !== button) {
+            currentExpanded.setAttribute("aria-expanded", "false");
+          }
+        }
+  
+        button.setAttribute("aria-expanded", !expanded);
+      });
+    });
+  </script>  
+
+<style>
+    @layer components {
+        section {
+          margin-top: var(--space-7xl);
+          padding: var(--space-3xl-7xl) 0;
+          background: var(--secondary-1);
+          text-align: center;
+
+          h2 {
+            padding-top: var(--space-3xs);
+          }
+        }
+      
+        ul {
+          padding: var(--space-xl);
+          max-width: 45.3rem;
+          margin-inline: auto;
+        }
+    }
+</style>

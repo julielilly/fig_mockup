@@ -1,0 +1,107 @@
+---
+const { id, question, answer } = Astro.props;
+---
+
+<li>
+  <article>
+    
+    <button aria-expanded="false" aria-controls={id}>
+        <span>{question}</span>
+        <svg viewBox="0 0 10 10" aria-hidden="true" stroke="#181818" stroke-linecap="round"><line class="vertical-line" x1="5" y1="1" x2="5" y2="9"></line> <line x1="1" y1="5" x2="9" y2="5"></line></svg>
+    </button>
+
+    <div class="answer" id={id}>
+        <p>{answer}</p>
+    </div>
+
+  </article>
+</li>
+
+<style>
+
+    @media (width >= 450px) { 
+
+        article:has([aria-expanded="true"]) {
+            .answer {
+                max-height: 6.2rem;
+            }
+            .vertical-line {
+                rotate: z 90deg;
+            }
+         }
+    }
+
+    @media (width < 450px) { 
+
+        article:has([aria-expanded="true"]) {
+            .answer {
+                max-height: 12rem;
+            }
+            .vertical-line {
+                rotate: z 90deg;
+            }
+        }   
+    }
+
+    article {
+        border-bottom: 0.063rem solid #dadada;
+    
+
+    button {
+        border: none;
+        padding: 0;
+        inline-size: 100%;
+        padding-block: var(--space-m);
+        display: flex;
+        gap: var(--space-s);
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        text-align: left;
+
+        font-family: Cabin;
+        font-size: var(--step-2);
+        font-weight: 500;
+
+        &:hover {
+            color: var(--primary-3);
+        }
+
+        svg {
+            inline-size: auto;
+            height: 1rem;
+            flex-shrink: 0;
+
+            .vertical-line {
+                transform-box: fill-box;
+                transform-origin: 50% 50%;
+                rotate: z 0deg;
+                transition: 0.6s;
+            }
+        }
+    }
+
+    @media (width <= 450px) { 
+       button {
+        align-items: end;
+       }
+    }
+
+    .answer {
+      color: #595566;
+      text-align: left;
+
+      max-height: 0;
+      transition: max-height ease 0.6s;
+      overflow: hidden;
+      
+      :last-child {
+        padding-block-end: 1.5rem;
+      }
+
+      .link-block {
+        display: block;
+      }
+    }
+  }
+</style>

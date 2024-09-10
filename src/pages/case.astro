@@ -7,6 +7,7 @@ import BulletSection from "../components/BulletSection.astro";
 import Numbers from "../components/Numbers.astro";
 import CoreValues from "../components/CoreValues.astro";
 import SmallSection from "../components/SmallSection.astro";
+import AccordionContainer from "../components/AccordionContainer.astro";
 
 const valueData = await fetch(
     "https://raw.githubusercontent.com/julielilly/frontend-design/main/resources/json/corevalues.json"
@@ -24,5 +25,6 @@ const employeeData = await fetch(
   <Numbers/>
   <CoreValues data={valueData} class="full-bleed light"/>
   <SmallSection data={employeeData}/>
+  <AccordionContainer exclusive="true"/>
 	
   </Layout>
