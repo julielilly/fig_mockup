@@ -5,7 +5,60 @@ const { data } = Astro.props;
 ---
 
 <section>
-    
-{data.map(employee => <EmployeeCard {employee} />)}
 
+    <div class="intro">
+        <h2>Meet Our Great Team</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation.</p>
+        <button>Join our team</button>
+    </div>
+
+    <div class="employees">
+        {data.map(employee => <EmployeeCard {employee} />)}
+    </div>
+    
 </section>
+
+
+<style>
+    @layer components {
+
+        .intro {
+            display: grid;
+            grid-template-columns: 65ch auto;
+
+            h2 {
+                grid-column: span 2;
+            }
+            button {
+                place-self: end;
+
+                color: var(--button-color, var(--secondary-2));
+                background: var(--button, var(--primary-3));
+                border: solid 0.125rem var(--primary-3);
+                &:hover {
+                    --button: var(--secondary-2);
+                    --button-color: var(--primary-3);
+                }
+                &:active {
+                    --button: oklch(from var(--primary-3) calc(l + 0.15) c h);
+                }
+            
+            }
+        }
+
+        section {
+            margin-top: var(--space-7xl);
+        }
+        
+        .employees {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16.88rem, auto));;
+            column-gap: var(--space-2xl);
+            row-gap: var(--space-4xl);
+            margin-top: var(--space-xl);
+            place-content: center;
+        }
+   
+    }
+    
+</style>

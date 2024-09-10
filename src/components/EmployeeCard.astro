@@ -3,7 +3,7 @@ import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 
 const { employee } = Astro.props;
-const { img, name} = employee;
+const { img, name, description, title, social_links, slug} = employee;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}');
 
@@ -11,11 +11,84 @@ if (!images[img]) throw new Error(`"${img}" does not exist in glob: "/src/assets
 
 ---
 
-<div class="card">
-    <h2>{name}</h2>
+<div class="card"> 
+    <a href={`/employees/${employee.slug}`}>
+        <div> 
+            <Image src={images[img]()} alt=portrait />
+            <p>{title}</p>
+        </div>
+    </a>
 
-    <Image src={images[img]()} alt=portrait />
-    
+    <div class="description">
+        <h2>{name}</h2>
+        <p>{description}</p>
+    </div>
 
-
+    <ul class="icons">
+        <li><a href={social_links.instagram}><img src="/images/instagram.svg" alt="instagram icon"></a></li>
+        <li><a href={social_links.facebook}><img src="/images/facebook.svg" alt="facebook icon"></a></li>
+        <li><a href={social_links.twitter}><img src="/images/twitter.svg" alt="twitter icon"></a></li>
+    </ul>
 </div>
+
+
+<style>
+    @layer components {
+        a {}
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-m);
+            text-align: center;
+
+            div:first-child {
+                display: grid;
+                
+                img {
+                    border-radius: var(--border-card);
+                    width: 16.88rem;
+                }
+
+                p {
+                    padding: var(--space-3xs) var(--space-m);
+                    border-radius: var(--border-card);
+                    background: var(--primary-3);
+                    color: var(--secondary-2);
+                    margin: 0 var(--space-s) var(--space-s) 0;
+                    place-self:  end;
+                }
+
+                > * {
+                    grid-row: 1;
+                    grid-column: 1;
+                }
+
+                &:hover {
+                    p {
+                        background: var(--primary-1);
+                        color: var(--primary-3);
+                    }
+                }
+            }
+        
+        .description {
+            p {
+                padding-top: var(--space-xs);
+                max-width: 16.88rem;
+            }
+        }
+            
+            
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: var(--space-m);
+            
+            img {
+                width: 1.5rem;
+            }
+        }
+        }
+    }
+</style>

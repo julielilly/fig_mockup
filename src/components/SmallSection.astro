@@ -1,0 +1,41 @@
+---
+import SectionIntro from "../components/SectionIntro.astro";
+import EmployeeCard from "../components/EmployeeCard.astro";
+
+const { data } = Astro.props;
+---
+
+<section>
+    <SectionIntro keywordText="our team" title="We champion the bold to achieve the extraordinary" text="Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team." backgroundColor="var(--primary-1)" textColor="var(--primary-3)"/>
+    <div class="employees">
+        {data.map(employee => <EmployeeCard {employee} />).slice(0, 3)}
+    </div>
+    
+</section>
+
+
+<style>
+    @layer components {
+        section {
+            margin-top: var(--space-7xl);
+        }
+        
+        .employees {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16.88rem, auto));;
+            column-gap: var(--space-2xl);
+            row-gap: var(--space-4xl);
+            margin-top: var(--space-xl);
+            place-content: center;
+        }
+       
+        section {
+            div {
+                max-width: 64ch;
+            }
+        }
+
+   
+    }
+    
+</style>
