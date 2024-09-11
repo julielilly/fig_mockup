@@ -23,7 +23,7 @@
   #newsletter {
     background: var(--primary-3);
     color: var(--secondary-2);
-    padding: var(--space-4xl);
+    padding: var(--space-4xl) var(--space-l-4xl);
     border-radius: var(--border-card);
     display: flex;
     flex-wrap: wrap;
@@ -31,6 +31,7 @@
     z-index: -2;
     margin-inline: auto; 
     gap: var(--space-s);
+    row-gap: var(--space-l);
     
     position: relative;
     overflow: hidden;
@@ -93,10 +94,13 @@
       p {
           max-width: 100%;
       }
+      input {
+        padding-right: var(--space-l-4xl);
+      }
     }
     @container (width > 878px) { 
       input {
-        padding-right: var(--space-3xl-4xl);
+        padding-right: var(--space-4xl);
       }
     }
   }
