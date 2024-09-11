@@ -117,6 +117,9 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
         }
 
         @media (width <= 870px) {
+            section {
+                grid-template-columns: 1fr;
+            }
             section .collage {
                 display: none;
             }

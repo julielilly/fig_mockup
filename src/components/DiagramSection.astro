@@ -11,7 +11,7 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
     <div>
         <SectionIntro keywordText={keywordText} title={title} text={text} backgroundColor={backgroundColor} textColor={textColor}/>
 
-        <div class="digrams">
+        <div class="diagrams">
             <Diagram percent="85%" description="Consistency"/>
             <Diagram percent="95%" description="Improvement"/>
             <Diagram percent="90%" description="Branching"/>
@@ -33,7 +33,7 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
                 justify-content: space-between;
             }
 
-            .digrams {
+            .diagrams {
                 display: grid;
                 grid-template-columns: repeat(3, max-content);
                 gap: var(--space-m);
@@ -48,8 +48,16 @@ const { keywordText, title, text, backgroundColor, textColor } = Astro.props;
                     grid-template-columns: 1fr;
                     justify-content: space-between;
                 }
-            
+            }
         }
+        @media (width <= 475px) {
+            section {
+                .diagrams {
+                    grid-template-columns: 1fr;
+                    margin: 0 auto;
+                    gap: var(--space-l);
+                }
+            }
         }
     }
 </style>

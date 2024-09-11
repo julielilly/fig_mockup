@@ -23,11 +23,16 @@ const { data } = Astro.props;
     @layer components {
 
         .intro {
-            display: grid;
-            grid-template-columns: 65ch auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: var(--space-s);
 
+            p {
+                max-width: 60ch;
+            }
             h2 {
-                grid-column: span 2;
+                width: 100%;
             }
             button {
                 place-self: end;
@@ -47,7 +52,7 @@ const { data } = Astro.props;
         }
 
         section {
-            margin-top: var(--space-7xl);
+            margin-top: var(--space-3xl-7xl);
         }
         
         .employees {

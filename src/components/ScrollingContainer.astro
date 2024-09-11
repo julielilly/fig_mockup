@@ -120,15 +120,32 @@ const { data } = Astro.props;
 
         @media (width <= 650px) { 
             div{
-            grid-template-columns: 1fr;
+                grid-template-columns: 1fr;
 
-            > div {
-                grid-row: 4;
+                > div {
+                    grid-row: 4;
+                    margin-top: var(--space-m);
 
+                }
             }
-            
+            ul {
+                margin-top: var(--space-m);
+            }
+
+            .arrow {
+                width: 3.5rem;
+                height: 3.5rem;
+                padding: var(--space-2xs);
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    width: 1.3rem;
+                }
+            }
         }
-            }
     }
  </style>
 

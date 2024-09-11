@@ -25,12 +25,18 @@ const { icon, title, description, name} = card;
       }
       div {
         padding: var(--space-2xl) var(--space-l);
-        min-width: 21.56rem;
+        min-width: 22rem;
         background-color: #EBEBEB;
         border-radius: var(--border-card);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      @media (width <= 380px) { 
+        div {
+          min-width: 18rem;
+        }
       }
     }
  </style>

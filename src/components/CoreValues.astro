@@ -52,7 +52,7 @@ const { data, class: className } = Astro.props;
         }
         section {
             background: var(--primary-3);
-            padding: 6.25rem 0;
+            padding: var(--space-5xl) 0;
 
             p, h2 {
                 color: var(--secondary-2);
@@ -61,9 +61,6 @@ const { data, class: className } = Astro.props;
                 color: var(--button-color, var(--primary-3));
                 background: var(--button, var(--secondary-2));
                 border: solid 0.125rem var(--secondary-2);
-
-                place-self: end;
-
                 &:hover {
                 --button: var(--primary-3);
                 --button-color: var(--secondary-2);
@@ -90,6 +87,8 @@ const { data, class: className } = Astro.props;
             .section-intro {
                 display: flex;
                 justify-content: space-between;
+                gap: var(--space-s);
+                flex-wrap: wrap;
                  
                 div {
                     max-width: 60ch;
@@ -102,14 +101,10 @@ const { data, class: className } = Astro.props;
         @media (width <= 945px) { 
 
             section {
-                .section-intro {
-                    flex-direction: column;
-                }
-    
                 ul {
                     align-items: stretch;
-    
                     li {
+                        width: minmax(200px, 100%);
                         max-width: 100%;
                     }
                 }
@@ -118,12 +113,10 @@ const { data, class: className } = Astro.props;
 
         @media (width <= 615px) { 
             section {
-                ul {
-
-                    li {
-                        max-width: 47%;
+                ul li {
+                        width: minmax(45%, 300px);
                     }
-                }
+                
              }
         }
     }

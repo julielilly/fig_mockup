@@ -54,35 +54,6 @@ const { title, paragraph, buttonText } = Astro.props;
             }
         }
 
-        @media (width <= 872px) { 
-                div:last-child {
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                   
-                    
-                    p {
-                        order: 1;
-                    }
-                    h6 {
-                        flex-grow: 3;
-                        place-self: end;
-                    }
-                }
-            }
-            @media (width <= 579px) { 
-                div{
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                   
-                    
-                    p {
-                        order: 1;
-                    }
-                    h6 {
-                        flex-grow: 3;
-                        place-self: center;
-                    }
-                }
-            }
+       
     }
 </style>
