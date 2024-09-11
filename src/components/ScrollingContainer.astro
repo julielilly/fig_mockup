@@ -11,22 +11,36 @@ const { data } = Astro.props;
         <h1>{data.title}</h1>
         <p>{data.subtitle}</p>
         <div>
-            <button class="arrow left-arrow"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button id="slideLeft" class="arrow left-arrow"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="Vector" d="M1 6.78174H14.068M14.068 6.78174L8.72198 1.43579M14.068 6.78174L8.72198 12.1278" stroke="#141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg></button>
-            <button class="arrow right-arrow"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button id="slideRight" class="arrow right-arrow"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="Vector" d="M1 6.78174H14.068M14.068 6.78174L8.72198 1.43579M14.068 6.78174L8.72198 12.1278" stroke="#141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg></button>
         </div>
     </div>
 
-    <ul class="full-bleed">
+    <ul class="full-bleed" id="container">
         {data.values.map(card => <FinancialCard {card} />)}
     </ul>
     
     
     
  </section>
+
+ <script>
+        const buttonRight = document.getElementById('slideRight');
+        const buttonLeft = document.getElementById('slideLeft');
+        const container = document.getElementById('container');
+       
+            buttonRight.onclick = function () {
+                container.scrollLeft += 220;
+            };
+            buttonLeft.onclick = function () {
+                container.scrollLeft -= 220;
+            };
+       
+ </script>
 
  <style>
     @layer components {
@@ -93,7 +107,7 @@ const { data } = Astro.props;
             grid-column: full;
             display: flex;
             gap: var(--space-l);
-            overflow-x: auto;
+            overflow-x: scroll;
             padding-inline: max(1rem, 50% - var(--content-width) / 2);
 
             scroll-snap-type: x mandatory;
