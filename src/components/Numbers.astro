@@ -4,24 +4,24 @@
 
 <ul>
     <li>
-        <h1>1128+</h1>
+        <h1 class="number">+</h1>
         Successful Work
     </li>
     <li>
-        <h1>908+</h1>
+        <h1 class="number">+</h1>
         Team member
     </li>
     <li>
-        <h1>258+</h1>
+        <h1 class="number">+</h1>
         Happy Customers
     </li>
     <li>
-        <h1>564+</h1>
+        <h1 class="number">+</h1>
         Creative Idea
     </li>
 </ul>
 
-<style >
+<style>
     @layer components {
         ul {
             display: flex;
@@ -31,6 +31,74 @@
             text-wrap: wrap;
             margin: var(--space-2xl) 0 var(--space-5xl) 0;
             flex-wrap: wrap;
+            
         }
+
+        /* dum kode, men det eneste, der lige var tid til */
+
+        @property --num {
+            syntax: '<integer>';
+            initial-value: 0;
+            inherits: false;
+        }
+
+        .number::before {
+            content: counter(num);
+        }
+        
+        li:first-child .number{
+            animation: --counter1 linear both;
+            animation-timeline: view(block);
+            animation-range: entry 200% contain 30%;
+            counter-reset: num var(--num);
+        }
+        
+        @keyframes --counter1 {
+            to {
+                --num: 1128;
+            }
+        } 
+
+        li:nth-child(2) .number {
+            animation: --counter2 linear both;
+            animation-timeline: view(block);
+            animation-range: entry 200% contain 30%;
+            counter-reset: num var(--num);
+        }
+        
+        @keyframes --counter2 {
+            to {
+                --num: 908;
+            }
+        } 
+
+        li:nth-child(3) .number {
+            animation: --counter3 linear both;
+            animation-timeline: view(block);
+            animation-range: entry 200% contain 30%;
+            counter-reset: num var(--num);
+        }
+        
+        @keyframes --counter3 {
+            to {
+                --num: 258;
+            }
+        } 
+
+        li:nth-child(4) .number {
+            animation: --counter4 linear both;
+            animation-timeline: view(block);
+            animation-range: entry 200% contain 30%;
+            counter-reset: num var(--num);
+        }
+        
+        @keyframes --counter4 {
+            to {
+                --num: 564;
+            }
+        } 
+
+
     }
+
 </style>

@@ -4,8 +4,9 @@ import Popover from "../components/Popover.astro";
 
 ---
 
-<header>
+<header class="header_container">
     
+ 
         <div class="header_content">
             <a href="/"> <h5 id="logo"> AskExperts </h5> </a>   
             <ul>
@@ -16,6 +17,7 @@ import Popover from "../components/Popover.astro";
             </ul>
             <button popovertarget="login" id="login_button">Login</button>
         </div>
+   
 
         <Popover item_id="login" />
 
@@ -41,6 +43,7 @@ import Popover from "../components/Popover.astro";
 </header>
 
 <script>
+    
     const icon = document.querySelector(".hamburger");
     const menu = document.querySelector(".menu");
 
@@ -48,17 +51,21 @@ import Popover from "../components/Popover.astro";
         icon.classList.toggle("clicked");
         menu.classList.toggle("show_menu");
     });
+
 </script>
 
 <style>
     
     @layer components {
-        header {
-            background: oklch(from var(--primary-3) calc(l + 0.1) c h);
-            position: sticky;
-            top: 0;
-            z-index: 100;
 
+        .header_container {
+            background: oklch(from var(--primary-3) calc(l + 0.1) c h);
+            height: 100px;
+            position: sticky;
+            padding-top: 5px;
+            top: -15px;
+            z-index: 100;
+            align-content: center;
         }
 
         ul {
@@ -72,7 +79,10 @@ import Popover from "../components/Popover.astro";
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var( --space-l) 0;
+            padding: var(--space-m) 0;
+            
+            position: sticky;
+            top: 0;
 
             #logo{
                 color: var(--secondary-2);
