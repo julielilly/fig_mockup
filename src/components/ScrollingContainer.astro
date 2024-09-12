@@ -96,8 +96,8 @@ const { data } = Astro.props;
                 --button-color: var(--secondary-2);
                 border: solid 0.125rem var(--primary-3);
 
-                svg {
-                    stroke: white;
+                svg path{
+                    stroke: var(--secondary-2);
                 }
             }
         }
@@ -126,7 +126,8 @@ const { data } = Astro.props;
                         color: var(--secondary-2);
                     }
                     svg path{
-                        fill: var(--primary-3);
+                        fill: var(--primary-1);
+                        stroke: var(--primary-1);
                     }
                 }
             }
